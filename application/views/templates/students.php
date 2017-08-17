@@ -20,7 +20,7 @@
 						{students}
             <tr>
               <td>{id}</td>
-              <td><img height="30" width="30" src="{image}" class="img-circle"></td>
+              <td><img height="30" width="30" src="{photo}" class="img-circle"></td>
               <td><a title="Редагувати" href="#">{last_name}</a></td>
               <td><a title="Редагувати" href="#">{first_name}</a></td>
               <td>{ticket}</td>

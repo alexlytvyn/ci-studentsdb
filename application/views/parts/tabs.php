@@ -1,5 +1,5 @@
 <?php
-	$studclass = ($_SERVER['REQUEST_URI'] == '/students') ? 'active' : '';
+	$studclass = ($_SERVER['REQUEST_URI'] == '/students' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : '';
 	$jourclass = ($_SERVER['REQUEST_URI'] == '/journal') ? 'active' : '';
 	$groupclass = ($_SERVER['REQUEST_URI'] == '/groups') ? 'active' : '';
 	?>
