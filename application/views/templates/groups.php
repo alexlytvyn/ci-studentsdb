@@ -1,36 +1,3 @@
-<!DOCTYPE html>
-<html lang="uk">
-
-<head>
-	<meta charset="UTF-8">
-	<title>Сервіс Обліку Студентів - Групи</title>
-	<meta name="description" value="Система Обліку Студентів Навчального Закладу" />
-	<!-- Include styles  -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/main.css" charset="utf-8">
-</head>
-
-<body>
-	<!-- Start Container -->
-	<div class="container">
-		<!-- Start Header -->
-		<div class="row" id="header">
-			<!-- Logo -->
-			<div class="col-xs-8">
-				<h1>Сервіс Обліку Студентів</h1>
-			</div>
-			<!-- Groups Selector -->
-			<div class="col-xs-4" id="group-selector">
-				<strong>Група:</strong>
-				<select>
-          <option value="">Усі Студенти</option>
-          <option value="">Ф-07, Литвин Олександр (№ 007)</option>
-          <option value="">Ф-08, Мороз Вікторія (№ 010)</option>
-          <option value="">Ф-09, Желюк Михайло (№ 609)</option>
-        </select>
-			</div>
-		</div>
-		<!-- End Header -->
 		<!-- Start SubHeader -->
 		<div class="row" id="sub-header">
 			<div class="col-xs-12">
@@ -145,18 +112,3 @@
 			</div>
 		</div>
 		<!-- End Main Page Content -->
-		<!-- Start Footer -->
-		<div class="row" id="footer">
-			<div class="col-xs-12">
-				&copy; 2017 Сервіс Обліку Студентів
-			</div>
-		</div>
-		<!-- End Footer -->
-	</div>
-	<!-- End Container -->
-	<!-- JavaScript Session -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" charset="utf-8"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
-</body>
-
-</html>

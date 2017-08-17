@@ -10,6 +10,8 @@ class Groups extends CI_Controller
                         show_404();
         }
 
+        $this->load->view('parts/header');
         $this->load->view('templates/'.$page);
+        $this->load->view('parts/footer');
     }
 }
