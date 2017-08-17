@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Сервіс обліку студентів - Студенти</title>
+	<title>Сервіс обліку студентів - <?php echo $title; ?></title>
 	<meta name="description" value="Система Обліку Студентів Навчального Закладу" />
 	<!-- Include Styles -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">

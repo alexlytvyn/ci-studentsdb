@@ -10,7 +10,10 @@ class Groups extends CI_Controller
                         show_404();
         }
 
-        $this->load->view('parts/header');
+				$data['title'] = 'Групи';
+
+        $this->load->view('parts/header', $data);
+        $this->load->view('parts/tabs');
         $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }

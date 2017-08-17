@@ -1,14 +1,3 @@
-        <!-- Start SubHeader -->
-				<div class="row" id="sub-header">
-					<div class="col-xs-12">
-						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation"><a href="/students">Студенти</a></li>
-							<li role="presentation" class="active"><a href="/journal">Відвідування</a></li>
-							<li role="presentation"><a href="/groups">Групи</a></li>
-						</ul>
-					</div>
-				</div>
-        <!-- End SubHeader -->
         <!-- Start Main Page Content -->
         <div class="row" id="content-columns">
             <div class="col-xs-12" id="content-column">
