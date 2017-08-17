@@ -15,10 +15,11 @@
 							<th>Дії</th>
 					</thead>
 					<tbody>
+						{groups}
 						<tr>
-							<td>1</td>
-							<td><a title="Редагувати" href="#">Ф-07</a></td>
-							<td><a title="Редагувати" href="#">Литвин Олександр</a></td>
+							<td>{id}</td>
+							<td><a title="Редагувати" href="#">{group_name}</a></td>
+							<td><a title="Редагувати" href="#">{leader_name}</a></td>
 							<td>
 								<div class="dropdown">
 									<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
@@ -38,52 +39,7 @@
 								</div>
 							</td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td><a title="Редагувати" href="#">Ф-08</a></td>
-							<td><a title="Редагувати" href="#">Мороз Вікторія</a></td>
-							<td>
-								<div class="dropdown">
-									<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
-                    <span class="caret"></span>
-                  </button>
-									<ul class="dropdown-menu" role="menu">
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
-										</li>
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
-										</li>
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Видалити</a>
-										</li>
-									</ul>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td><a title="Редагувати" href="#">Ф-09</a></td>
-							<td><a title="Редагувати" href="#">Желюк Михайло</a></td>
-							<td>
-								<div class="dropdown">
-									<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
-                    <span class="caret"></span>
-                  </button>
-									<ul class="dropdown-menu" role="menu">
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
-										</li>
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
-										</li>
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Видалити</a>
-										</li>
-									</ul>
-								</div>
-							</td>
-						</tr>
+						{/groups}
 					</tbody>
 				</table>
 				<!-- End Students Listing -->

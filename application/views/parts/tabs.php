@@ -13,6 +13,5 @@
 					<li role="presentation" class="<?php echo $groupclass; ?>"><a href="/groups">Групи</a></li>
 				</ul>
 			</div>
-
 		</div>
 		<!-- End SubHeader -->
