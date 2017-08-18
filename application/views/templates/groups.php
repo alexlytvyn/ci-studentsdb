@@ -9,9 +9,9 @@
 				<table class="table table-hover table-striped">
 					<thead>
 						<tr>
-							<th><a href="">№</a></th>
-							<th><a href="">Назва &uarr;</a></th>
-							<th><a href="#">Староста</a></th>
+							<th><a href="/groups/ordered?order_by=id">№</a></th>
+							<th><a href="/groups/ordered?order_by=group_name">Назва</a></th>
+							<th><a href="/groups/ordered?order_by=leader_name">Староста</a></th>
 							<th>Дії</th>
 					</thead>
 					<tbody>

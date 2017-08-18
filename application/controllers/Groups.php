@@ -29,4 +29,26 @@ class Groups extends CI_Controller
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
+
+		public function ordered($page = 'groups')
+    {
+        if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
+            // Whoops, we don't have a page for that!
+                        show_404();
+        }
+
+        $data['title'] = 'Групи';
+
+        $this->load->library('parser');
+
+        $fixtures = array(
+          'groups' => $this->groups_model->order_by()
+				);
+
+        $this->load->view('parts/header', $data);
+        $this->load->view('parts/tabs');
+        $this->parser->parse('templates/groups', $fixtures);
+        // $this->load->view('templates/'.$page);
+        $this->load->view('parts/footer');
+    }
 }

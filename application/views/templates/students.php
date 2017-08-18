@@ -9,11 +9,11 @@
 				<table class="table table-hover table-striped">
           <thead>
             <tr>
-              <th><a href="">№</a></th>
+              <th><a href="/students/ordered?order_by=id">№</a></th>
               <th>Фото</th>
-              <th><a href="#">Прізвище</a></th>
-              <th><a href="#">Ім'я</a></th>
-              <th><a href="#">№ Білету</a></th>
+              <th><a href="/students/ordered?order_by=last_name">Прізвище</a></th>
+              <th><a href="/students/ordered?order_by=first_name">Ім'я</a></th>
+              <th><a href="/students/ordered?order_by=ticket">№ Білету</a></th>
               <th>Дії</th>
           </thead>
           <tbody>

@@ -21,8 +21,29 @@ class Students extends CI_Controller
         $this->load->library('parser');
 
         $fixtures = array(
-          'students' => $this->students_model->get_all_students(),
-					'order_link' => '/students/order_by/'
+          'students' => $this->students_model->get_all_students()
+				);
+
+        $this->load->view('parts/header', $data);
+        $this->load->view('parts/tabs');
+        $this->parser->parse('templates/students', $fixtures);
+        // $this->load->view('templates/'.$page);
+        $this->load->view('parts/footer');
+    }
+
+		public function ordered($page = 'students')
+    {
+        if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
+            // Whoops, we don't have a page for that!
+                        show_404();
+        }
+
+        $data['title'] = 'Студенти';
+
+        $this->load->library('parser');
+
+        $fixtures = array(
+          'students' => $this->students_model->order_by()
 				);
 
         $this->load->view('parts/header', $data);
