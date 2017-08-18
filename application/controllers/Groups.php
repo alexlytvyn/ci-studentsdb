@@ -3,6 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Groups extends CI_Controller
 {
+	public function __construct()
+	{
+			parent::__construct();
+			$this->load->model('groups_model');
+	}
     public function view($page = 'groups')
     {
         if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
@@ -15,21 +20,8 @@ class Groups extends CI_Controller
 				$this->load->library('parser');
 
 				$fixtures = array(
-					'groups' => array(
-                array('id' => '1',
-											'leader_name' => 'Литвин Олександр',
-											'group_name' => 'Ф-07'
-										 ),
-							 	array('id' => '2',
-											'leader_name' => 'Желюк Михайло',
-											'group_name' => 'Ф-08'
-										 ),
-							 	array('id' => '3',
-											'leader_name' => 'Мороз Вікторія',
-											'group_name' => 'Ф-09'
-										 )
-        )
-);
+          'groups' => $this->groups_model->get_all_groups()
+				);
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
