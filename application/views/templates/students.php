@@ -11,7 +11,7 @@
             <tr>
               <th><a href="">№</a></th>
               <th>Фото</th>
-              <th><a href="">Прізвище &uarr;</a></th>
+              <th><a href="#">Прізвище</a></th>
               <th><a href="#">Ім'я</a></th>
               <th><a href="#">№ Білету</a></th>
               <th>Дії</th>

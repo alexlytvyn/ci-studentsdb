@@ -9,7 +9,7 @@ class Students extends CI_Controller
         $this->load->model('students_model');
     }
 
-    public function view($page = 'students')
+    public function index($page = 'students')
     {
         if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
             // Whoops, we don't have a page for that!
@@ -21,7 +21,8 @@ class Students extends CI_Controller
         $this->load->library('parser');
 
         $fixtures = array(
-          'students' => $this->students_model->get_all_students()
+          'students' => $this->students_model->get_all_students(),
+					'order_link' => '/students/order_by/'
 				);
 
         $this->load->view('parts/header', $data);

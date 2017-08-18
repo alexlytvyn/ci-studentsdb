@@ -8,7 +8,7 @@ class Groups extends CI_Controller
 			parent::__construct();
 			$this->load->model('groups_model');
 	}
-    public function view($page = 'groups')
+    public function index($page = 'groups')
     {
         if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
             // Whoops, we don't have a page for that!

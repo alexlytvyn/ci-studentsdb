@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Journal extends CI_Controller
 {
-    public function view($page = 'journal')
+    public function index($page = 'journal')
     {
         if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
             // Whoops, we don't have a page for that!
