@@ -1,7 +1,7 @@
 <?php
-	$studclass = ($_SERVER['REQUEST_URI'] == '/students' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : '';
-	$jourclass = ($_SERVER['REQUEST_URI'] == '/journal') ? 'active' : '';
-	$groupclass = ($_SERVER['REQUEST_URI'] == '/groups') ? 'active' : '';
+	$studclass = (substr($_SERVER['REQUEST_URI'], 0, 9) == '/students' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : '';
+	$jourclass = (substr($_SERVER['REQUEST_URI'], 0, 8) == '/journal') ? 'active' : '';
+	$groupclass = (substr($_SERVER['REQUEST_URI'], 0, 7) == '/groups') ? 'active' : '';
 	?>
 
 <!-- Start Subheader -->
