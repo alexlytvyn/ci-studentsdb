@@ -3,7 +3,7 @@
 			<div class="col-xs-12" id="content-column">
 				<!-- Status Message -->
 				<div class="alert alert-warning">Зміни скасовано</div>
-				<h2>База Студентів - <a href="#" class="btn btn-primary">Додати Студента</a></h2>
+				<h2>База Студентів - <a href="<?php echo base_url(); ?>students/add" class="btn btn-primary">Додати Студента</a></h2>
 
 				<!-- Start Students Listing -->
 				<table class="table table-hover table-striped">

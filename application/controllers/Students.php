@@ -17,16 +17,16 @@ class Students extends CI_Controller
         }
 
         $data['title'] = 'Студенти';
-				$data['students'] = $this->students_model->get_all_students();
+        $data['students'] = $this->students_model->get_all_students();
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-				$this->load->view('templates/students', $data);
+        $this->load->view('templates/students', $data);
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
 
-		public function ordered($page = 'students')
+    public function ordered($page = 'students')
     {
         if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
             // Whoops, we don't have a page for that!
@@ -34,12 +34,47 @@ class Students extends CI_Controller
         }
 
         $data['title'] = 'Студенти';
-				$data['students'] = $this->students_model->order_by();
+        $data['students'] = $this->students_model->order_by();
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-				$this->load->view('templates/students', $data);
+        $this->load->view('templates/students', $data);
         // $this->load->view('templates/'.$page);
+        $this->load->view('parts/footer');
+    }
+
+    public function add()
+    {
+        $data['title'] = 'Додавання студента';
+        if (isset($_POST['add_student_button'])) {
+            if ($this->students_model->student_add()) {
+
+								//Check whether user upload picture
+                    $config['upload_path'] = 'assets/img/';
+                    $config['overwrite'] = TRUE;
+                    $config['remove_spaces'] = FALSE;
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                    $config['file_name'] = $_FILES['photo']['name'];
+
+                    //Load upload library and initialize configuration
+                    $this->load->library('upload', $config);
+
+                    if ($this->upload->do_upload('photo')) {
+                        $uploadData = $this->upload->data();
+                        $photo = $uploadData['full_path'];
+                    } else {
+                        $photo = '';
+                    }
+
+                $this->session->set_flashdata('success', 'Студента було успішно додано!');
+                redirect('students/add', 'refresh');
+            } else {
+                $this->session->set_flashdata('error', 'Сталася помилка при додаванні Студента.');
+                redirect('students/add', 'refresh');
+            }
+        }
+        $this->load->view('parts/header', $data);
+        $this->load->view('templates/student_add');
         $this->load->view('parts/footer');
     }
 }
