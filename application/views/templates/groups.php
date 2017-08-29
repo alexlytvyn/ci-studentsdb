@@ -15,31 +15,32 @@
 							<th>Дії</th>
 					</thead>
 					<tbody>
-						{groups}
-						<tr>
-							<td>{id}</td>
-							<td><a title="Редагувати" href="#">{group_name}</a></td>
-							<td><a title="Редагувати" href="#">{leader_name}</a></td>
-							<td>
-								<div class="dropdown">
-									<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
-                    <span class="caret"></span>
-                  </button>
-									<ul class="dropdown-menu" role="menu">
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
-										</li>
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
-										</li>
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#">Видалити</a>
-										</li>
-									</ul>
-								</div>
-							</td>
-						</tr>
-						{/groups}
+						<?php $i = 1; ?>
+						<?php foreach ($groups as $group): ?>
+							<tr>
+								<td><?php echo $i++; ?></td>
+								<td><a title="Редагувати" href="#"><?php echo $group->group_name; ?></a></td>
+								<td><a title="Редагувати" href="#"><?php echo $group->leader_name; ?></a></td>
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
+	                    <span class="caret"></span>
+	                  </button>
+										<ul class="dropdown-menu" role="menu">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Видалити</a>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						<?php endforeach; ?>
 					</tbody>
 				</table>
 				<!-- End Students Listing -->
