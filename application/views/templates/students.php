@@ -17,33 +17,34 @@
               <th>Дії</th>
           </thead>
           <tbody>
-						{students}
-            <tr>
-              <td>{id}</td>
-              <td><img height="30" width="30" src="{photo}" class="img-circle"></td>
-              <td><a title="Редагувати" href="#">{last_name}</a></td>
-              <td><a title="Редагувати" href="#">{first_name}</a></td>
-              <td>{ticket}</td>
-              <td>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li role="presentation">
-                      <a role="menuitem" tabindex="-1" href="#">Відвідування</a>
-                    </li>
-                    <li role="presentation">
-                      <a role="menuitem" tabindex="-1" href="#">Редагувати</a>
-                    </li>
-                    <li role="presentation">
-                      <a role="menuitem" tabindex="-1" href="#">Видалити</a>
-                    </li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-					{/students}
+						<?php $i = 1; ?>
+						<?php foreach ($students as $student): ?>
+							<tr>
+								<td><?php echo $i++; ?></td>
+								<td><img height="30" width="30" src="<?php echo $student->photo; ?>" class="img-circle"></td>
+								<td><a title="Редагувати" href="#"><?php echo $student->last_name; ?></a></td>
+								<td><a title="Редагувати" href="#"><?php echo $student->first_name; ?></a></td>
+								<td><?php echo $student->ticket; ?></td>
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Видалити</a>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+					<?php endforeach; ?>
           </tbody>
         </table>
 				<!-- End Students Listing -->

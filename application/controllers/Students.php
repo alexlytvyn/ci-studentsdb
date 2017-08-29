@@ -17,16 +17,11 @@ class Students extends CI_Controller
         }
 
         $data['title'] = 'Студенти';
-
-        $this->load->library('parser');
-
-        $fixtures = array(
-          'students' => $this->students_model->get_all_students()
-				);
+				$data['students'] = $this->students_model->get_all_students();
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-        $this->parser->parse('templates/students', $fixtures);
+				$this->load->view('templates/students', $data);
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
@@ -39,16 +34,11 @@ class Students extends CI_Controller
         }
 
         $data['title'] = 'Студенти';
-
-        $this->load->library('parser');
-
-        $fixtures = array(
-          'students' => $this->students_model->order_by()
-				);
+				$data['students'] = $this->students_model->order_by();
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-        $this->parser->parse('templates/students', $fixtures);
+				$this->load->view('templates/students', $data);
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
