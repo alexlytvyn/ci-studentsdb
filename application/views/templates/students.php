@@ -22,8 +22,8 @@
 							<tr>
 								<td><?php echo $i++; ?></td>
 								<td><img height="30" width="30" src="<?php echo $student->photo; ?>" class="img-circle"></td>
-								<td><a title="Редагувати" href="#"><?php echo $student->last_name; ?></a></td>
-								<td><a title="Редагувати" href="#"><?php echo $student->first_name; ?></a></td>
+								<td><a title="Редагувати" href="<?php echo base_url().'students/edit/'.$student->id; ?>"><?php echo $student->last_name; ?></a></td>
+								<td><a title="Редагувати" href="<?php echo base_url().'students/edit/'.$student->id; ?>"><?php echo $student->first_name; ?></a></td>
 								<td><?php echo $student->ticket; ?></td>
 								<td>
 									<div class="dropdown">
@@ -35,7 +35,7 @@
 												<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
 											</li>
 											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
+												<a role="menuitem" tabindex="-1" href="<?php echo base_url().'students/edit/'.$student->id; ?>">Редагувати</a>
 											</li>
 											<li role="presentation">
 												<a role="menuitem" tabindex="-1" href="<?php echo base_url().'students/delete/'.$student->id; ?>">Видалити</a>

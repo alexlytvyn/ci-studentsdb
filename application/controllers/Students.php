@@ -49,22 +49,22 @@ class Students extends CI_Controller
         if (isset($_POST['add_student_button'])) {
             if ($this->students_model->student_add()) {
 
-	          //Check whether user upload picture
-	          $config['upload_path'] = 'assets/img/';
-	          $config['overwrite'] = true;
-	          $config['remove_spaces'] = false;
-	          $config['allowed_types'] = 'jpg|jpeg|png|gif';
-	          $config['file_name'] = $_FILES['photo']['name'];
+              //Check whether user upload picture
+              $config['upload_path'] = 'assets/img/';
+                $config['overwrite'] = true;
+                $config['remove_spaces'] = false;
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['file_name'] = $_FILES['photo']['name'];
 
-	              //Load upload library and initialize configuration
-	              $this->load->library('upload', $config);
+                  //Load upload library and initialize configuration
+                  $this->load->library('upload', $config);
 
-	          if ($this->upload->do_upload('photo')) {
-	              $uploadData = $this->upload->data();
-	              $photo = $uploadData['full_path'];
-	          } else {
-	              $photo = '';
-	          }
+                if ($this->upload->do_upload('photo')) {
+                    $uploadData = $this->upload->data();
+                    $photo = $uploadData['full_path'];
+                } else {
+                    $photo = '';
+                }
 
                 $this->session->set_flashdata('success', 'Студента було успішно додано!');
                 redirect('students/add', 'refresh');
@@ -80,16 +80,34 @@ class Students extends CI_Controller
 
     public function delete($id)
     {
-			$data['title'] = 'Видалення Студента';
-			$data['current_student'] = $this->students_model->get_student($id);
+        $data['title'] = 'Видалення Студента';
+        $data['current_student'] = $this->students_model->get_student($id);
 
-			if (isset($_POST['student_confirm_delete_button'])) {
-				$this->students_model->student_delete($id);
-				redirect('students', 'refresh');
-	    }
-			
+        if (isset($_POST['student_confirm_delete_button'])) {
+            $this->students_model->student_delete($id);
+            redirect('students', 'refresh');
+        }
+
+        $this->load->view('parts/header', $data);
+        $this->load->view('templates/student_delete_confirm', $data);
+        $this->load->view('parts/footer');
+    }
+
+    public function edit($id)
+    {
+			$data['title'] = 'Редагування інформації про Студента';
+			if (isset($_POST['edit_student_button'])) {
+					if ($this->students_model->student_update($id)) {
+							$this->session->set_flashdata('success', 'Дані про Студента було успішно оновлено!');
+							redirect(base_url().'students/edit/'.$id, 'refresh');
+					} else {
+							$this->session->set_flashdata('error', 'A error occured during data updating. Please try again later.');
+							redirect(base_url().'students/edit/'.$id, 'refresh');
+					}
+			}
+			$data['current_student'] = $this->students_model->get_student($id);
 			$this->load->view('parts/header', $data);
-			$this->load->view('templates/student_delete_confirm', $data);
+			$this->load->view('templates/student_edit', $data);
 			$this->load->view('parts/footer');
     }
 }
