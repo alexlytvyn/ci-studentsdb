@@ -58,4 +58,19 @@ class Groups extends CI_Controller
         $this->load->view('templates/group_add');
         $this->load->view('parts/footer');
     }
+
+		public function delete($id)
+    {
+        $data['title'] = 'Видалення Групи';
+        $data['current_group'] = $this->groups_model->get_group($id);
+
+        if (isset($_POST['group_confirm_delete_button'])) {
+            $this->groups_model->group_delete($id);
+            redirect('groups', 'refresh');
+        }
+
+        $this->load->view('parts/header', $data);
+        $this->load->view('templates/group_delete_confirm', $data);
+        $this->load->view('parts/footer');
+    }
 }

@@ -34,7 +34,7 @@
 												<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
 											</li>
 											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Видалити</a>
+												<a role="menuitem" tabindex="-1" href="<?php echo base_url().'groups/delete/'.$group->id; ?>">Видалити</a>
 											</li>
 										</ul>
 									</div>

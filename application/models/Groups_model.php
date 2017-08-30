@@ -26,4 +26,17 @@ class Groups_model extends CI_Model
       $id = $this->db->insert_id();
       return $id;
     }
+
+		public function group_delete($id) {
+			$this->db->where('id', $id);
+			$this->db->delete('groups');
+		}
+
+		public function get_group($id) {
+			$this->db->select('*');
+			$this->db->where('id', $id);
+			$this->db->from('groups');
+			$query = $this->db->get();
+			return $query->row();
+		}
 }
