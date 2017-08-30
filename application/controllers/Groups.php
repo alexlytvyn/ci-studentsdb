@@ -41,4 +41,21 @@ class Groups extends CI_Controller
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
+
+		public function add()
+    {
+        $data['title'] = 'Додавання Групи';
+        if (isset($_POST['add_group_button'])) {
+            if ($this->groups_model->group_add()) {
+                $this->session->set_flashdata('success', 'Групу було успішно додано!');
+                redirect('groups/add', 'refresh');
+            } else {
+                $this->session->set_flashdata('error', 'Сталася помилка при додаванні Групи.');
+                redirect('groups/add', 'refresh');
+            }
+        }
+        $this->load->view('parts/header', $data);
+        $this->load->view('templates/group_add');
+        $this->load->view('parts/footer');
+    }
 }

@@ -3,9 +3,9 @@
 			<div class="col-xs-12" id="content-column">
 				<!-- Status Message -->
 				<div class="alert alert-warning">Зміни скасовано.</div>
-				<h2>Групи - <a class="btn btn-primary" href="#">Додати Групу</a></h2>
+				<h2>Групи - <a class="btn btn-primary" href="<?php echo base_url(); ?>groups/add">Додати Групу</a></h2>
 
-				<!-- Start Students Listing -->
+				<!-- Start Groups Listing -->
 				<table class="table table-hover table-striped">
 					<thead>
 						<tr>
@@ -43,7 +43,7 @@
 						<?php endforeach; ?>
 					</tbody>
 				</table>
-				<!-- End Students Listing -->
+				<!-- End Groups Listing -->
 				<nav>
 					<ul class="pagination">
 						<li><a href="#">&laquo;</a></li>
