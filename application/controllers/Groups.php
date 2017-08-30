@@ -73,4 +73,22 @@ class Groups extends CI_Controller
         $this->load->view('templates/group_delete_confirm', $data);
         $this->load->view('parts/footer');
     }
+
+		public function edit($id)
+    {
+			$data['title'] = 'Редагування інформації про Групу';
+			if (isset($_POST['edit_group_button'])) {
+					if ($this->groups_model->group_update($id)) {
+							$this->session->set_flashdata('success', 'Дані про Групу було успішно оновлено!');
+							redirect(base_url().'groups/edit/'.$id, 'refresh');
+					} else {
+							$this->session->set_flashdata('error', 'A error occured during data updating. Please try again later.');
+							redirect(base_url().'groups/edit/'.$id, 'refresh');
+					}
+			}
+			$data['current_group'] = $this->groups_model->get_group($id);
+			$this->load->view('parts/header', $data);
+			$this->load->view('templates/group_edit', $data);
+			$this->load->view('parts/footer');
+    }
 }

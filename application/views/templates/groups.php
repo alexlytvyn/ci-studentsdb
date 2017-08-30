@@ -19,8 +19,8 @@
 						<?php foreach ($groups as $group): ?>
 							<tr>
 								<td><?php echo $i++; ?></td>
-								<td><a title="Редагувати" href="#"><?php echo $group->group_name; ?></a></td>
-								<td><a title="Редагувати" href="#"><?php echo $group->leader_name; ?></a></td>
+								<td><a title="Редагувати" href="<?php echo base_url().'groups/edit/'.$group->id; ?>"><?php echo $group->group_name; ?></a></td>
+								<td><a title="Редагувати" href="<?php echo base_url().'groups/edit/'.$group->id; ?>"><?php echo $group->leader_name; ?></a></td>
 								<td>
 									<div class="dropdown">
 										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія
@@ -31,7 +31,7 @@
 												<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
 											</li>
 											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Редагувати</a>
+												<a role="menuitem" tabindex="-1" href="<?php echo base_url().'groups/edit/'.$group->id; ?>">Редагувати</a>
 											</li>
 											<li role="presentation">
 												<a role="menuitem" tabindex="-1" href="<?php echo base_url().'groups/delete/'.$group->id; ?>">Видалити</a>
