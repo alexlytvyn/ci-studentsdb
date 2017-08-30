@@ -9,9 +9,9 @@ class Students extends CI_Controller
         $this->load->model('students_model');
     }
 
-    public function index($page = 'students')
+    public function index($page = 'students_list')
     {
-        if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
+        if (! file_exists(APPPATH.'views/templates/students/'.$page.'.php')) {
             // Whoops, we don't have a page for that!
                         show_404();
         }
@@ -21,14 +21,14 @@ class Students extends CI_Controller
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-        $this->load->view('templates/students', $data);
+        $this->load->view('templates/students/students_list', $data);
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
 
-    public function ordered($page = 'students')
+    public function ordered($page = 'students_list')
     {
-        if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
+        if (! file_exists(APPPATH.'views/templates/students/'.$page.'.php')) {
             // Whoops, we don't have a page for that!
                         show_404();
         }
@@ -38,7 +38,7 @@ class Students extends CI_Controller
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-        $this->load->view('templates/students', $data);
+        $this->load->view('templates/students/students_list', $data);
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
@@ -74,7 +74,7 @@ class Students extends CI_Controller
             }
         }
         $this->load->view('parts/header', $data);
-        $this->load->view('templates/student_add');
+        $this->load->view('templates/students/student_add');
         $this->load->view('parts/footer');
     }
 
@@ -89,7 +89,7 @@ class Students extends CI_Controller
         }
 
         $this->load->view('parts/header', $data);
-        $this->load->view('templates/student_delete_confirm', $data);
+        $this->load->view('templates/students/student_delete_confirm', $data);
         $this->load->view('parts/footer');
     }
 
@@ -107,7 +107,7 @@ class Students extends CI_Controller
 			}
 			$data['current_student'] = $this->students_model->get_student($id);
 			$this->load->view('parts/header', $data);
-			$this->load->view('templates/student_edit', $data);
+			$this->load->view('templates/students/student_edit', $data);
 			$this->load->view('parts/footer');
     }
 }

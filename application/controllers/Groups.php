@@ -8,9 +8,9 @@ class Groups extends CI_Controller
         parent::__construct();
         $this->load->model('groups_model');
     }
-    public function index($page = 'groups')
+    public function index($page = 'groups_list')
     {
-        if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
+        if (! file_exists(APPPATH.'views/templates/groups/'.$page.'.php')) {
             // Whoops, we don't have a page for that!
                         show_404();
         }
@@ -20,14 +20,14 @@ class Groups extends CI_Controller
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-        $this->load->view('templates/groups', $data);
+        $this->load->view('templates/groups/groups_list', $data);
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
 
-    public function ordered($page = 'groups')
+    public function ordered($page = 'groups_list')
     {
-        if (! file_exists(APPPATH.'views/templates/'.$page.'.php')) {
+        if (! file_exists(APPPATH.'views/templates/groups'.$page.'.php')) {
             // Whoops, we don't have a page for that!
                         show_404();
         }
@@ -37,7 +37,7 @@ class Groups extends CI_Controller
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-        $this->load->view('templates/groups', $data);
+        $this->load->view('templates/groups/groups_list', $data);
         // $this->load->view('templates/'.$page);
         $this->load->view('parts/footer');
     }
@@ -55,7 +55,7 @@ class Groups extends CI_Controller
             }
         }
         $this->load->view('parts/header', $data);
-        $this->load->view('templates/group_add');
+        $this->load->view('templates/groups/group_add');
         $this->load->view('parts/footer');
     }
 
@@ -70,7 +70,7 @@ class Groups extends CI_Controller
         }
 
         $this->load->view('parts/header', $data);
-        $this->load->view('templates/group_delete_confirm', $data);
+        $this->load->view('templates/groups/group_delete_confirm', $data);
         $this->load->view('parts/footer');
     }
 
@@ -88,7 +88,7 @@ class Groups extends CI_Controller
 			}
 			$data['current_group'] = $this->groups_model->get_group($id);
 			$this->load->view('parts/header', $data);
-			$this->load->view('templates/group_edit', $data);
+			$this->load->view('templates/groups/group_edit', $data);
 			$this->load->view('parts/footer');
     }
 }
