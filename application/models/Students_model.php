@@ -31,4 +31,9 @@ class Students_model extends CI_Model
 		        $id = $this->db->insert_id();
 		        return $id;
     }
+
+		public function student_delete($id) {
+			$this->db->where('id', $id);
+			$this->db->delete('students');
+		}
 }
