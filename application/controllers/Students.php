@@ -81,13 +81,15 @@ class Students extends CI_Controller
     public function delete($id)
     {
 			$data['title'] = 'Видалення Студента';
+			$data['current_student'] = $this->students_model->get_student($id);
+
 			if (isset($_POST['student_confirm_delete_button'])) {
 				$this->students_model->student_delete($id);
 				redirect('students', 'refresh');
 	    }
+			
 			$this->load->view('parts/header', $data);
-			$this->load->view('templates/student_delete_confirm');
+			$this->load->view('templates/student_delete_confirm', $data);
 			$this->load->view('parts/footer');
-
     }
 }

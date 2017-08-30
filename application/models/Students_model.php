@@ -36,4 +36,12 @@ class Students_model extends CI_Model
 			$this->db->where('id', $id);
 			$this->db->delete('students');
 		}
+
+		public function get_student($id) {
+			$this->db->select('*');
+			$this->db->where('id', $id);
+			$this->db->from('students');
+			$query = $this->db->get();
+			return $query->row();
+		}
 }

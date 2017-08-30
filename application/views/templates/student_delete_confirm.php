@@ -9,7 +9,7 @@
 		  <div class="col-md-6">
 				<!-- Start Students Adding Form -->
 			<form class="" action="" method="post">
-				<h2>Ви дійсно хочете видалити студента?</h2>
+				<h2>Ви дійсно хочете видалити студента <?php echo $current_student->last_name.' '.$current_student->first_name; ?>?</h2>
 				<button type="submit" name="student_confirm_delete_button" class="btn btn-danger">OK</button>
 				<a href="<?php echo base_url(); ?>" class="btn btn-default">Відміна</a>
 			</form>
