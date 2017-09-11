@@ -19,6 +19,33 @@ class Students extends CI_Controller
         $data['title'] = 'Студенти';
         $data['students'] = $this->students_model->get_all_students();
 
+				// $this->load->library('pagination');
+        // $config = [
+        //     'base_url' => base_url().'students/',
+        //     'per_page' => 3,
+        //     'total_rows' => $this->students_model->count_rows()
+        // ];
+
+				// $config['full_tag_open'] = '<ul class="pagination">';
+        // $config['full_tag_close'] = '</ul>';
+        // $config['num_tag_open'] = '<li class="page-item">';
+        // $config['num_tag_close'] = '</li>';
+        // $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+        // $config['cur_tag_close'] = '</a></li>';
+        // $config['next_tag_open'] = '<li class="page-item">';
+        // $config['next_tagl_close'] = '</a></li>';
+        // $config['prev_tag_open'] = '<li class="page-item">';
+        // $config['prev_tagl_close'] = '</li>';
+        // $config['first_tag_open'] = '<li class="page-item disabled">';
+        // $config['first_tagl_close'] = '</li>';
+        // $config['last_tag_open'] = '<li class="page-item">';
+        // $config['last_tagl_close'] = '</a></li>';
+        // $config['attributes'] = array('class' => 'page-link');
+        // $this->pagination->initialize($config); // model function
+				//
+				// $data['students'] = $this->students_model->get_all_students($config['per_page'], $this->uri->segment(3)); // list of seeker
+				// $data['pagination'] = $this->pagination->create_links();
+
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
         $this->load->view('templates/students/students_list', $data);
