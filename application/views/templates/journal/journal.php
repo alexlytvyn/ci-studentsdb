@@ -47,18 +47,18 @@
 
 					// Список місяців для відображення у календарі
 					$Month_r = array(
-							"1" => "January",
-							"2" => "February",
-							"3" => "March",
-							"4" => "April",
-							"5" => "May",
-							"6" => "June",
-							"7" => "July",
-							"8" => "August",
-							"9" => "September",
-							"10" => "October",
-							"11" => "November",
-							"12" => "December");
+							"1" => "Січень",
+							"2" => "Лютий",
+							"3" => "Березень",
+							"4" => "Квітень",
+							"5" => "Травень",
+							"6" => "Червень",
+							"7" => "Липень",
+							"8" => "Серпень",
+							"9" => "Вересень",
+							"10" => "Жовтень",
+							"11" => "Листопад",
+							"12" => "Грудень");
 
 					// Змінна, яка містить перше число заданого місяця
 					$first_of_month = mktime(0, 0, 0, $month, 1, $year);
@@ -68,8 +68,7 @@
 					$month = $date_info['mon'];
 					$year = $date_info['year'];
 
-					// Вычитаем один день с первого дня месяца,
-					//чтобы получить в конец прошлого месяца
+					// Вираховуємо останній день попереднього місяця
 					$timestamp_previous_month = $first_of_month - (24*60*60);
 					$previous_month = date("m", $timestamp_previous_month);?>
 
@@ -86,7 +85,7 @@
               <th>#</th>
               <th>Студент</th>
               <?php
-							// станавливаем текущий день как единица 1
+							// Встановлюємо поточний день як перший
 							$day = 1;
 
 							// Масив, який містить назви днів тижня
@@ -107,16 +106,18 @@
 							 ?>
             </thead>
             <tbody>
+						<?php foreach ($full_name as $journal_item): ?>
               <tr>
-                <td>1</td>
-                <td><a title="Редагувати" href="#">Литвин Олександр</a></td>
-								<?php
-								for ($i=0; $i < $maxdays; $i++) { ?>
-									<td><div class="checkbox">
-	                <label><input type="checkbox" value=""></label>
-	                </div></td>
-								<?php  } ?>
+									<td><?php echo $journal_item->id; ?></td>
+									<td><a title="Редагувати" href="#"><?php echo $journal_item->last_name . ' ' . $journal_item->first_name ?></a></td>
+									<?php
+									for ($i=0; $i < $maxdays; $i++) { ?>
+										<td><div class="checkbox">
+		                <label><input type="checkbox" value=""></label>
+		                </div></td>
+									<?php  } ?>
               </tr>
+							<?php endforeach; ?>
             </tbody>
         </table>
         </div>
