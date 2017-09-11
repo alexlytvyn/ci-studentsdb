@@ -73,14 +73,14 @@
 					$previous_month = date("m", $timestamp_previous_month);?>
 
 
-					<div class="datechoose" style="text-align: center;">
+					<div class="datechoose">
 					<a href='<?php echo $self; ?>?month=<?php echo $previous_month; ?>&year=<?php echo $previous_year; ?>'>&larr;</a>
          <?php echo $Month_r[$month]. ' '. $year;  ?>
           <a href='<?php echo $self; ?>?month=<?php echo $next_month; ?>&year=<?php echo $next_year; ?>'>&rarr;</a>
 				</div>
         <!-- Start Students Listing -->
-        <div class="maintable" style="margin-right: 15px;">
-        <table class="table table-bordered">
+        <div class="maintable">
+        <table class="table table-bordered table-striped table-hover table-condensed">
             <thead>
               <th>#</th>
               <th>Студент</th>
