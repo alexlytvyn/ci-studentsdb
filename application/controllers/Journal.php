@@ -17,11 +17,23 @@ class Journal extends CI_Controller
         }
 
         $data['title'] = 'Журнал Відвідування';
-        $data['full_name'] = $this->journal_model->get_full_student_name();
+        $data['journal_list'] = $this->journal_model->get_full_student_name();
 
         $this->load->view('parts/header', $data);
         $this->load->view('parts/tabs');
-        $this->load->view('templates/journal/'.$page);
+        $this->load->view('templates/journal/'.$page, $data);
+        $this->load->view('parts/footer');
+    }
+
+		public function student_journal($id)
+    {
+
+        $data['title'] = 'Журнал Відвідування Студента';
+        $data['journal_list'] = $this->journal_model->get_student($id);
+
+        $this->load->view('parts/header', $data);
+        $this->load->view('parts/tabs');
+        $this->load->view('templates/journal/journal', $data);
         $this->load->view('parts/footer');
     }
 }

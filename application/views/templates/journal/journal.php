@@ -106,10 +106,10 @@
 							 ?>
             </thead>
             <tbody>
-						<?php foreach ($full_name as $journal_item): ?>
+						<?php foreach ($journal_list as $journal_item): ?>
               <tr>
 									<td><?php echo $journal_item->id; ?></td>
-									<td><a title="Редагувати" href="#"><?php echo $journal_item->last_name . ' ' . $journal_item->first_name ?></a></td>
+									<td><a title="Редагувати" href="<?php echo base_url().'journal/student_journal/'.$journal_item->id; ?>"><?php echo $journal_item->last_name . ' ' . $journal_item->first_name ?></a></td>
 									<?php
 									for ($i=0; $i < $maxdays; $i++) { ?>
 										<td><div class="checkbox">

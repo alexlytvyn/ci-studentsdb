@@ -32,7 +32,7 @@
 										</button>
 										<ul class="dropdown-menu" role="menu">
 											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Відвідування</a>
+												<a role="menuitem" tabindex="-1" href="<?php echo base_url().'journal/student_journal/'.$student->id; ?>">Відвідування</a>
 											</li>
 											<li role="presentation">
 												<a role="menuitem" tabindex="-1" href="<?php echo base_url().'students/edit/'.$student->id; ?>">Редагувати</a>

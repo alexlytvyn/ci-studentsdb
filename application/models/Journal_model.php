@@ -9,4 +9,13 @@ class Journal_model extends CI_Model
 			$query = $this->db->get('students');
 			return $query->result();
     }
+
+		public function get_student($id)
+    {
+        $this->db->select('id, last_name, first_name');
+        $this->db->where('id', $id);
+        $this->db->from('students');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
