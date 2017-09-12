@@ -137,4 +137,39 @@ class Students extends CI_Controller
 			$this->load->view('templates/students/student_edit', $data);
 			$this->load->view('parts/footer');
     }
+
+    public function photo_edit($id)
+    {
+			$data['title'] = 'Змінити Фото Студента';
+			if (isset($_POST['edit_student_photo_button'])) {
+					if ($this->students_model->student_photo_update($id)) {
+
+							//Check whether user upload picture
+							$config['upload_path'] = 'assets/img/';
+							$config['overwrite'] = true;
+							$config['remove_spaces'] = false;
+							$config['allowed_types'] = 'jpg|jpeg|png|gif';
+							$config['file_name'] = $_FILES['photo']['name'];
+
+							//Load upload library and initialize configuration
+							$this->load->library('upload', $config);
+
+							if ($this->upload->do_upload('photo')) {
+									$uploadData = $this->upload->data();
+									$photo = $uploadData['full_path'];
+							} else {
+									$photo = '';
+							}
+							$this->session->set_flashdata('success', 'Фото Студента було успішно змінено!');
+							redirect(base_url().'students/photo_edit/'.$id, 'refresh');
+					} else {
+							$this->session->set_flashdata('error', 'A error occured during data updating. Please try again later.');
+							redirect(base_url().'students/photo_edit/'.$id, 'refresh');
+					}
+			}
+			$data['current_student'] = $this->students_model->get_student($id);
+			$this->load->view('parts/header', $data);
+			$this->load->view('templates/students/student_photo_edit', $data);
+			$this->load->view('parts/footer');
+    }
 }

@@ -21,7 +21,7 @@
 						<?php foreach ($students as $student): ?>
 							<tr>
 								<td><?php echo $i++; ?></td>
-								<td><img height="30" width="30" src="<?php echo $student->photo; ?>" class="img-circle"></td>
+								<td><a href="<?php echo base_url().'students/photo_edit/'.$student->id; ?>"><img height="30" width="30" src="<?php echo $student->photo; ?>" class="img-thumbnail"></a></td>
 								<td><a title="Редагувати" href="<?php echo base_url().'students/edit/'.$student->id; ?>"><?php echo $student->last_name; ?></a></td>
 								<td><a title="Редагувати" href="<?php echo base_url().'students/edit/'.$student->id; ?>"><?php echo $student->first_name; ?></a></td>
 								<td><?php echo $student->ticket; ?></td>

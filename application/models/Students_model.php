@@ -55,22 +55,31 @@ class Students_model extends CI_Model
     public function student_update($id)
     {
         $data = array(
-                            'last_name' => $this->input->post('last_name'),
-                            'middle_name' => $this->input->post('middle_name'),
-                            'first_name' => $this->input->post('first_name'),
-                            'birthday' => $this->input->post('birthday'),
-                            'ticket' => $this->input->post('ticket'),
-                            'notes' => $this->input->post('notes'),
-                            'photo' => base_url().'assets/img/'.$_FILES['photo']['name']
-                    );
+          'last_name' => $this->input->post('last_name'),
+          'middle_name' => $this->input->post('middle_name'),
+          'first_name' => $this->input->post('first_name'),
+          'birthday' => $this->input->post('birthday'),
+          'ticket' => $this->input->post('ticket'),
+          'notes' => $this->input->post('notes')
+        );
         $this->db->where('id', $id);
         $this->db->update('students', $data);
         return $id;
     }
 
-    public function count_rows()
+    public function student_photo_update($id)
     {
-			$query = $this->db->get('students');
-			return $query->num_rows();
+        $data = array(
+          'photo' => base_url().'assets/img/'.$_FILES['photo']['name']
+        );
+        $this->db->where('id', $id);
+        $this->db->update('students', $data);
+        return $id;
     }
+
+    // public function count_rows()
+    // {
+		// 	$query = $this->db->get('students');
+		// 	return $query->num_rows();
+    // }
 }

@@ -8,7 +8,7 @@
 		<div class="row">
 		  <div class="col-md-6">
 				<!-- Start Students Adding Form -->
-				<form class="" action="" method="post" enctype="multipart/form-data">
+				<form class="" action="" method="post">
 					<h2>Редагування даних про Студента</h2>
 					<div class="form-group">
 					  <label for="last_name">Прізвище</label>
@@ -33,10 +33,6 @@
 					<div class="form-group">
 					  <label for="notes">Додаткові нотатки</label>
 					  <textarea name="notes" class="form-control" placeholder="Тут можна вказати додаткові нотатки"><?php echo $current_student->notes; ?></textarea>
-					</div>
-					<div class="form-group">
-					  <label for="photo">Фото Студента</label>
-					  <input type="file" name="photo" value="" size="20" value="<?php echo $current_student->photo; ?>">
 					</div>
 					<button type="submit" name="edit_student_button" class="btn btn-danger">Редагувати Студента</button>
 					<a href="<?php echo base_url(); ?>" class="btn btn-default">Відміна</a>
